@@ -1,0 +1,209 @@
+
+body{
+    font-family: 'League Spartan', sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+    --bg-opacity: 1;
+    margin:0;
+    padding: 0;
+    background-color: hsl(180, 52%, 96%);
+    color: #000;
+}
+
+header{
+    background-image: url(bg-header-desktop.svg);
+    width: 100%;
+    height: 150px;
+    background-color:hsl(180, 29%, 50%); 
+}
+form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row
+}
+
+@media only screen and (max-width: 767px){
+    form{
+        flex-direction: column;
+    }
+}
+
+h1{
+    text-align: center;
+}
+
+h2{
+    text-align: center;
+    font-size: 28px;
+    margin-left: 120px;
+}
+@media only screen and (max-width: 767px) {
+    h2{
+        margin-left: 0px
+    }
+    
+}
+label{
+    margin-right: 10px;
+    margin-bottom: 40px;
+}
+
+@media only screen and (max-width: 767px){
+    label{
+        margin-bottom: 0px;
+        margin-right: 60px;
+    }
+
+}
+.button{
+    font-size: 16px;
+    font-weight: 700;
+    background-color:  hsl(180, 29%, 50%);
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    padding-top: 15px;
+    margin-bottom: 40px;
+    padding-bottom: 15px;
+    margin-left: 40px;
+    width: 15%;
+    color: #fafafa;
+}
+
+@media only screen and (max-width: 767px){
+    .button{
+        width: 50%;
+        margin-right: 40px;
+        margin-top: 20px;
+    }
+}
+.button:hover{
+    color: #000;
+    scale: 1.05;
+    cursor: pointer;
+}
+
+.delete-button{
+ background: none;
+ border: none;
+ scale: 1.2;
+ cursor: pointer;
+}
+
+.update-button{
+background: none;
+border: none;
+scale: 1.2;  
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  #contact-list {
+    flex: 1;
+  }
+  
+  span{
+    margin-left: 40px;
+  }
+
+.input{   
+font-size: 16px;
+color: #000;
+border-radius: 10px;
+cursor: pointer;
+background-color: transparent;
+border: 1px solid hsl(180, 14%, 20%);
+margin-bottom: 40px;
+padding: 10px;
+}
+
+.search{
+font-size: 16px;
+color: #000;
+border-radius: 10px;
+cursor: pointer;
+background-color: transparent;
+border: 1px solid hsl(180, 14%, 20%);
+padding: 10px;
+}
+
+.input-update{
+font-size: 16px;
+color: #000;
+border-radius: 10px;
+cursor: pointer;
+background-color: transparent;
+border: 1px solid hsl(180, 14%, 20%);
+padding: 5px;
+}
+ul{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+
+li{
+    background-color: #FFF;
+    overflow: hidden;
+    box-shadow: 4px hsl(180, 14%, 20%);
+    border-radius: 10px;
+    width: 80%;
+    height: 60px;
+    margin-bottom: 1rem;
+    overflow: hidden;   
+    font-size: 20px;
+    
+}
+.seperator{
+    border: 1px solid hsl(180, 8%, 52%);
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+#error{
+    color: red;
+    font-size: 16px;
+    margin-top: -30px;
+    margin-left: 20px;
+}
+
+@media only screen and (max-width: 767px) {
+    #error{
+        margin-right: 50px;
+    }
+    
+}
+
+#errorUpdate{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: red;
+    font-size: 16px;
+}
+
+.contacts-container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    margin-bottom: 40px;
+}
+
+@media only screen and (max-width: 767px) {
+    .contacts-container{
+     flex-direction: column;
+    }
+    
+}
+
+.contact-container{
+    display: flex; 
+    justify-content: space-around;
+}
