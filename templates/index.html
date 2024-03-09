@@ -15,19 +15,40 @@
   <header>
   </header>
     <h1>Contact List</h1>
-    <form id="contactForm" class="form">
-      <label>Enter name of contact:</label>
+    <form id="contactForm" onsubmit="createContact()" class="form">
+      <label for="contactName" >Name</label>
       <input 
       class="input"
       type="text" 
       id="contactName"
       >
       <div id="error"></div>
+      <label for="contactEmail">Email</label>
+      <input
+      class="input"
+      type="text"
+      id="contactEmail"
+      >
+      <div id="errorEmail"></div>
+      <label for="contactPhone">Phone</label>
+      <input
+      class="input"
+      type="text"
+      id="contactPhone" 
+      >
+      <div id="errorPhone"></div>
+      <label for="contactPostalcode">Postal Code</label>
+      <input
+      class="input"
+      type="text"
+      id="contactPostalcode"
+      >
+      <div id="errorPostalcode"></div>
       <button 
       class="button" 
       type="submit" 
-      onclick="createContact()"
       >Create Contact</button>
+      <div id="error"></div>
     </form>
     <div class="seperator"></div>
     <div class="contacts-container">
@@ -39,6 +60,12 @@
     id="searchTerm" 
     onkeyup="searchContacts()"
     >
+  </div>
+  <div id="updateModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+     
+    </div>
   </div>
   <div id="errorUpdate"></div>
     <div class="container">

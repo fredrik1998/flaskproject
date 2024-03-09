@@ -24,12 +24,18 @@ def after_request(response):
 
 class ContactModel(db.Model):
     __tablename__ = "table"
- 
+
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(), unique=True)
+    email = db.Column(db.String(), unique=False)
+    phone = db.Column(db.String(), unique=True)
+    postalcode = db.Column(db.String(), unique=False)
 
-    def __init__(self, name):
+    def __init__(self, name, email, phone, postalcode):
         self.name = name
+        self.email = email
+        self.phone = phone
+        self.postalcode = postalcode
 
     def __repr__(self):
         return f"{self.name}"
@@ -50,13 +56,21 @@ def create():
     if request.method == 'POST':
         request_data = json.loads(request.data)
         name = request_data['name']
-        contact = ContactModel(name=name)
+        email = request_data['email']
+        phone = request_data['phone']
+        postalcode = request_data['postalcode']
+        contact = ContactModel(
+            name=name,
+            email=email,
+            phone=phone,
+            postalcode=postalcode
+        )
         db.session.add(contact)
         db.session.commit()
         return jsonify({"success": True, "message": "contact added successfully"}), 201
 
 def contact_serializer(contact): 
-    return {'id': contact.id, 'name': contact.name}
+    return {'id': contact.id, 'name': contact.name, 'email': contact.email, 'phone': contact.phone, 'postalcode': contact.postalcode}
 
 @app.route('/data')
 def retrieveDataList():
@@ -76,15 +90,25 @@ def delete():
         abort(404)
  
     return jsonify({"success": True}), 201
-@app.route('/data/update', methods=['POST'])
 
 @app.route('/data/update', methods=['POST'])
 def update_contact():
     old_name = request.json.get('oldName')
     new_name = request.json.get('newName')
-    contact = ContactModel.query.filter_by(name=old_name).first()
+    old_email = request.json.get('oldEmail')
+    new_email = request.json.get('newEmail')
+    old_phone = request.json.get('oldPhone')
+    new_phone = request.json.get('newPhone')
+    old_postal_code = request.json.get('oldPostalCode')
+    new_postal_code = request.json.get('newPostalCode')
+
+
+    contact = ContactModel.query.filter_by(name=old_name, email=old_email, phone=old_phone, postalcode=old_postal_code).first()
     if contact:
         contact.name = new_name
+        contact.email = new_email
+        contact.phone = new_phone
+        contact.postalcode = new_postal_code
         db.session.commit()
         return jsonify({'success': True})
     return jsonify({'error': 'Contact not found'})
